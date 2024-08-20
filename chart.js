@@ -81,11 +81,39 @@ async function drawBarChart() {
         .selectAll("g")
         .data(dataset)
         .enter().append("rect")
+        .on("mouseenter", function(e, datum) {
+            onMouseEnter(datum)
+        })
+        .on("mousemove", onMouseMove)
+        .on("mousemove", onMouseMove)
         .attr("x", d => xScale(xAccessor(d)))
         .attr("y", d => yScale(yAccessor(d)))
         .attr("width", xScale.bandwidth())
         .attr("height", d => dimensions.boundedHeight - yScale(yAccessor(d)))
         .attr("fill", "#84a3fd")
+        .attr("class", "bar")
+
+    const tooltip = d3.select("#tooltip")
+        .attr("class", "tooltip")
+
+    function onMouseEnter(d) {
+        console.log(d)
+        tooltip.select("#season")
+            .text(`Season ${d['Season']}`)
+        tooltip.select("#viewers")
+            .text(`${d['Average Viewership']}M`)
+        tooltip.style("opacity", 0.9)
+    }
+
+    function onMouseMove() {
+        tooltip.style("left", `${event.pageX + 20}px`)
+        tooltip.style("top", `${event.pageY}px`)
+    }
+
+    function onMouseLeave() {
+        tooltip.style("opacity", 0)
+    }
 }
 
 drawBarChart()
+

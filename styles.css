@@ -1,17 +1,49 @@
 body {
-  font-family: sans-serif;
+    font-family: sans-serif;
 }
 
 svg {
-  margin: auto;
-  display: block;
+    margin: auto;
+    display: block;
 }
 
 h1 {
-  text-align: center;
-  font-size: 3em;
+    text-align: center;
+    font-size: 3em;
 }
 
 p {
     text-align: center;
 }
+
+.bar:hover {
+    fill: #841f5b;
+}
+
+.tooltip {
+    opacity: 0;
+    position: absolute;
+    font-size: 0.9em;
+    padding: 0.6em 1em;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    z-index: 10;
+    pointer-events: none;
+    line-height: 1.4em;
+}
+
+.tooltip:before {
+    content: '';
+}
+
+#season {
+    font-weight: 600;
+    font-size: 1.1em;
+    margin-bottom: 0.2em;
+    line-height: 1.4em;
+}
+
+#viewers {
+    text-align: center;
+}
+
