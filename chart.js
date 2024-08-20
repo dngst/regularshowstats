@@ -71,10 +71,7 @@ async function drawBarChart() {
         .attr("x", -dimensions.boundedHeight / 2)
         .attr("y", -dimensions.margin.left + 17)
         .text("U.S Viewers (Millions)")
-        .style("transform", "rotate(-90deg)")
-        .style("text-anchor", "middle")
-        .style("fill", "black")
-        .style("font-size", "1.4em")
+        .attr("class", "y-axis-label")
 
     // draw data
     const bars = bounds.append("g")
@@ -90,14 +87,12 @@ async function drawBarChart() {
         .attr("y", d => yScale(yAccessor(d)))
         .attr("width", xScale.bandwidth())
         .attr("height", d => dimensions.boundedHeight - yScale(yAccessor(d)))
-        .attr("fill", "#84a3fd")
         .attr("class", "bar")
 
     const tooltip = d3.select("#tooltip")
         .attr("class", "tooltip")
 
     function onMouseEnter(d) {
-        console.log(d)
         tooltip.select("#season")
             .text(`Season ${d['Season']}`)
         tooltip.select("#viewers")

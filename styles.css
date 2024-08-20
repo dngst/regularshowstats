@@ -16,8 +16,11 @@ p {
     text-align: center;
 }
 
-.bar:hover {
-    fill: #841f5b;
+.bar {
+    fill: #84a3fd;
+    &:hover {
+        fill: #841f5b;
+    }
 }
 
 .tooltip {
@@ -45,5 +48,12 @@ p {
 
 #viewers {
     text-align: center;
+}
+
+.y-axis-label {
+    transform: rotate(-90deg);
+    fill: black;
+    font-size: 1.4em;
+    text-anchor: middle;
 }
 
