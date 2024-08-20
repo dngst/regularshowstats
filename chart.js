@@ -85,7 +85,7 @@ async function drawBarChart() {
             onMouseEnter(datum)
         })
         .on("mousemove", onMouseMove)
-        .on("mousemove", onMouseMove)
+        .on("mouseleave", onMouseLeave)
         .attr("x", d => xScale(xAccessor(d)))
         .attr("y", d => yScale(yAccessor(d)))
         .attr("width", xScale.bandwidth())
