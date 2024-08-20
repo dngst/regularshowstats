@@ -67,6 +67,15 @@ async function drawBarChart() {
         .attr("id", "x-axis")
         .style("transform", `translateY(${dimensions.boundedHeight}px)`)
 
+    const yAxisLabel = yAxis.append("text")
+        .attr("x", -dimensions.boundedHeight / 2)
+        .attr("y", -dimensions.margin.left + 17)
+        .text("U.S Viewers (Millions)")
+        .style("transform", "rotate(-90deg)")
+        .style("text-anchor", "middle")
+        .style("fill", "black")
+        .style("font-size", "1.4em")
+
     // draw data
     const bars = bounds.append("g")
         .selectAll("g")
@@ -76,7 +85,7 @@ async function drawBarChart() {
         .attr("y", d => yScale(yAccessor(d)))
         .attr("width", xScale.bandwidth())
         .attr("height", d => dimensions.boundedHeight - yScale(yAccessor(d)))
-        .attr("fill", "#84a3fd") 
+        .attr("fill", "#84a3fd")
 }
 
 drawBarChart()
